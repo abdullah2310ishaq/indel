@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+    "target": "ES2020",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "skipLibCheck": true,
+    "jsx": "react-jsx",
+    "noEmit": true, // This is useful for type-checking only, without emitting any compiled JS
+    "isolatedModules": true,
+    "strict": true, // Enables all strict type-checking options
+    "noUnusedLocals": true, // Helps to catch unused variables
+    "noUnusedParameters": true, // Helps to catch unused parameters
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true
+  },
+  "include": [
+    "src/**/*"
+  ]
+}
