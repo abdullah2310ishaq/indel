@@ -4,7 +4,6 @@
 import { useRef } from "react"
 import AboutUsSection from "./components/AboutUsSection"
 import BenefitsSection from "./components/BenefitsSection"
-import ContactSection from "./components/StaffPortalSection"
 import FeaturesSection from "./components/FeaturesSection"
 import Footer from "./components/Footer"
 import HeroSection from "./components/HeroSection"

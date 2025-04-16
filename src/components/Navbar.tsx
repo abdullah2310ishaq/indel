@@ -33,7 +33,6 @@ const Navbar = ({ onNavigate }: NavbarProps) => {
     { label: "MOBILE APP", action: onNavigate.mobileApp },
     { label: "FEATURES", action: onNavigate.features },
     { label: "ABOUT US", action: onNavigate.aboutUs },
-    { label: "CONTACT US", action: onNavigate.contactUs },
   ]
 
   return (
