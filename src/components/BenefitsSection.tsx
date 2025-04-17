@@ -1,6 +1,7 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
+import SectionTitle from "./SectionTile"
 
 const BenefitsSection = () => {
   const benefits = [
@@ -27,6 +28,8 @@ const BenefitsSection = () => {
 
   const images = ["pic2.png", "pic3.png", "/pic4.png"]
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const [isVisible, setIsVisible] = useState(false)
+  const sectionRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -35,46 +38,76 @@ const BenefitsSection = () => {
     return () => clearInterval(interval)
   }, [images.length])
 
-  return (
-    <section className="bg-gray-50 py-12">
-      {/* Purple Header Banner */}
-      <div className="bg-gradient-to-r from-purple-700 to-indigo-700 py-6 relative mb-10">
-        <div className="container mx-auto px-4">
-          <h2 className="text-xl md:text-2xl font-bold text-white text-center">Indel Offers Wide Range Of Benefits</h2>
-        </div>
-        {/* Slanted bottom */}
-        <div
-          className="absolute bottom-0 left-0 right-0 h-6 bg-gray-50"
-          style={{
-            clipPath: "polygon(0 100%, 100% 100%, 100% 0, 50% 100%, 0 0)",
-          }}
-        ></div>
-      </div>
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+        }
+      },
+      { threshold: 0.1 },
+    )
 
-      <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-2 gap-8 items-center">
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current)
+      }
+    }
+  }, [])
+
+  return (
+    <section ref={sectionRef} className="py-16 bg-gray-50">
+      <div className="container mx-auto px-6 max-w-6xl">
+        <SectionTitle title="Indel Offers Wide Range Of Benefits" />
+
+        <div
+          className={`grid md:grid-cols-2 gap-10 items-center mt-12 transition-all duration-1000 transform ${
+            isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+          }`}
+        >
           {/* Text Column */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-purple-700">Key Benefits</h3>
-            <ul className="grid grid-cols-1 md:grid-cols-2 gap-2 text-gray-700 text-sm">
+            <h3 className="text-lg font-semibold mb-6 text-purple-700">Key Benefits</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-700 text-sm">
               {benefits.map((benefit, index) => (
-                <li key={index} className="flex items-start">
-                  <span className="text-purple-600 mr-1 mt-0.5 text-xs">➔</span>
+                <div
+                  key={index}
+                  className="flex items-start p-2 rounded-lg hover:bg-white hover:shadow-sm transition-all duration-300"
+                >
+                  <span className="text-purple-600 mr-2 mt-0.5 text-xs">➔</span>
                   <span>{benefit}</span>
-                </li>
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
 
           {/* Image Column */}
           <div className="max-w-md mx-auto w-full">
-            <div className="relative rounded-lg overflow-hidden shadow-md">
-              <img
-                src={images[currentImageIndex]}
-                alt={`Indel Dashboard ${currentImageIndex + 1}`}
-                className="w-full h-auto object-contain transition-opacity duration-500"
-                style={{ maxHeight: "250px" }}
-              />
+            <div className="relative rounded-xl overflow-hidden shadow-lg">
+              <div className="bg-gradient-to-r from-purple-100 to-indigo-100 p-4">
+                <img
+                  src={images[currentImageIndex] || "/placeholder.svg"}
+                  alt={`Indel Dashboard ${currentImageIndex + 1}`}
+                  className="w-full h-auto object-contain transition-opacity duration-500 rounded-lg"
+                  style={{ maxHeight: "300px" }}
+                />
+              </div>
+
+              {/* Image indicators */}
+              <div className="absolute bottom-2 left-0 right-0 flex justify-center space-x-2">
+                {images.map((_, index) => (
+                  <span
+                    key={index}
+                    className={`h-1.5 rounded-full transition-all duration-300 ${
+                      currentImageIndex === index ? "w-6 bg-purple-600" : "w-2 bg-gray-300"
+                    }`}
+                  ></span>
+                ))}
+              </div>
             </div>
           </div>
         </div>

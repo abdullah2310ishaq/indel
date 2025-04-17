@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Menu, X } from "lucide-react"
 import logo from "../assets/pic11.png"
 
@@ -18,6 +18,15 @@ interface NavbarProps {
 
 const Navbar = ({ onNavigate }: NavbarProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20)
+    }
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
 
@@ -36,29 +45,34 @@ const Navbar = ({ onNavigate }: NavbarProps) => {
   ]
 
   return (
-    <nav className="bg-gradient-to-r from-purple-700 to-indigo-800 text-white sticky top-0 z-50 shadow-md">
-      <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+    <nav
+      className={`${
+        scrolled ? "bg-purple-800 shadow-lg" : "bg-gradient-to-r from-purple-700 to-indigo-800"
+      } text-white sticky top-0 z-50 transition-all duration-300`}
+    >
+      <div className="max-w-6xl mx-auto px-6 py-3 flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center">
-          <img src={logo} alt="Logo" className="h-10 w-auto object-contain" />
+          <img src={logo || "/placeholder.svg"} alt="Logo" className="h-10 w-auto object-contain" />
         </div>
 
         {/* Mobile menu toggle */}
         <div className="md:hidden">
           <button onClick={toggleMenu} className="text-white focus:outline-none">
-            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
         {/* Desktop nav */}
-        <div className="hidden md:flex gap-4">
+        <div className="hidden md:flex gap-6">
           {navItems.map((item, index) => (
             <button
               key={index}
               onClick={() => handleNavClick(item.action)}
-              className="text-sm font-medium hover:text-rose-200 transition-colors px-2 py-1"
+              className="text-sm tracking-wide font-medium hover:text-purple-200 transition-colors px-2 py-1 relative group"
             >
               {item.label}
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-purple-300 transition-all duration-300 group-hover:w-full"></span>
             </button>
           ))}
         </div>
@@ -66,12 +80,12 @@ const Navbar = ({ onNavigate }: NavbarProps) => {
 
       {/* Mobile nav */}
       {isMenuOpen && (
-        <div className="md:hidden bg-indigo-800 px-4 py-4 space-y-3">
+        <div className="md:hidden bg-purple-900 px-6 py-4 space-y-3 animate-fadeIn">
           {navItems.map((item, index) => (
             <button
               key={index}
               onClick={() => handleNavClick(item.action)}
-              className="block w-full text-left text-base font-medium text-white hover:text-rose-200 transition-colors"
+              className="block w-full text-left text-sm font-medium text-white hover:text-purple-200 transition-colors py-2 border-b border-purple-800"
             >
               {item.label}
             </button>

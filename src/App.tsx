@@ -1,5 +1,6 @@
 "use client"
 
+import type React from "react"
 
 import { useRef } from "react"
 import AboutUsSection from "./components/AboutUsSection"
@@ -15,7 +16,7 @@ import StaffPortalSection from "./components/StaffPortalSection"
 export default function Home() {
   // Create refs for each section for smooth scrolling
   const homeRef = useRef<HTMLDivElement>(null)
-  const welcomeRef = useRef<HTMLDivElement>(null) // Added welcome ref
+  const welcomeRef = useRef<HTMLDivElement>(null)
   const benefitsRef = useRef<HTMLDivElement>(null)
   const mobileAppRef = useRef<HTMLDivElement>(null)
   const featuresRef = useRef<HTMLDivElement>(null)
@@ -30,11 +31,11 @@ export default function Home() {
   }
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen overflow-x-hidden">
       <Navbar
         onNavigate={{
           home: () => scrollToSection(homeRef),
-          welcome: () => scrollToSection(welcomeRef), // Added welcome navigation
+          welcome: () => scrollToSection(welcomeRef),
           benefits: () => scrollToSection(benefitsRef),
           mobileApp: () => scrollToSection(mobileAppRef),
           features: () => scrollToSection(featuresRef),
@@ -52,14 +53,13 @@ export default function Home() {
           />
         </div>
 
-        {/* Welcome Section - Added this section */}
+        {/* Welcome Section */}
         <div ref={welcomeRef}>
-          {/* You can create a WelcomeSection component or use an existing one */}
-          <div className="py-12 bg-white">
-            <div className="container mx-auto px-4">
-              <div className="max-w-3xl mx-auto text-center">
-                <h2 className="text-2xl md:text-3xl font-bold mb-6 text-purple-700">Welcome to INDEL</h2>
-                <p className="text-sm md:text-base text-gray-700 leading-relaxed">
+          <div className="py-16 bg-white">
+            <div className="container mx-auto px-6 max-w-4xl">
+              <div className="text-center">
+                <h2 className="text-2xl font-bold mb-6 text-purple-700">Welcome to INDEL</h2>
+                <p className="text-gray-700 leading-relaxed">
                   The next-generation web-based application for security companies, designed to streamline your
                   operations and enhance your business efficiency. Our comprehensive solution provides everything you
                   need to manage your security company effectively.
@@ -83,8 +83,9 @@ export default function Home() {
         <div>
           <HRModuleSection />
         </div>
-         {/* Staff Section */}
-         <div ref={contactUsRef}>
+
+        {/* Staff Section */}
+        <div ref={contactUsRef}>
           <StaffPortalSection />
         </div>
 
@@ -97,8 +98,6 @@ export default function Home() {
         <div ref={aboutUsRef}>
           <AboutUsSection />
         </div>
-
-       
       </main>
 
       <Footer

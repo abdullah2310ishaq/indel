@@ -1,6 +1,7 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
+import SectionTitle from "./SectionTile"
 
 const StaffPortalSection = () => {
   const portalFeatures = [
@@ -14,34 +15,56 @@ const StaffPortalSection = () => {
   ]
 
   const [isVisible, setIsVisible] = useState(false)
+  const sectionRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    setIsVisible(true)
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+        }
+      },
+      { threshold: 0.1 },
+    )
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current)
+      }
+    }
   }, [])
 
   return (
-    <section className="py-12 bg-gradient-to-r from-purple-600 to-indigo-700 text-white relative overflow-hidden">
+    <section
+      ref={sectionRef}
+      className="py-16 bg-gradient-to-r from-purple-600 to-indigo-700 text-white relative overflow-hidden"
+    >
       {/* Decorative background circles */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -left-20 top-0 w-40 h-40 rounded-full bg-purple-500 opacity-10" />
         <div className="absolute left-0 top-24 w-32 h-32 rounded-full bg-indigo-500 opacity-10" />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
-        <h2 className="text-2xl md:text-3xl font-semibold text-center mb-10">Mobile Friendly Staff Portal</h2>
+      <div className="container mx-auto px-6 relative z-10 max-w-6xl">
+        <SectionTitle title="Mobile Friendly Staff Portal" className="text-white" />
 
-        <div className="grid md:grid-cols-2 gap-10 items-center">
+        <div className="grid md:grid-cols-2 gap-10 items-center mt-12">
           {/* Left Side: Portal Screenshot Image */}
           <div
             className={`flex justify-center transition-all duration-1000 transform ${
               isVisible ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"
             }`}
           >
-            <div className="rounded-lg overflow-hidden shadow-lg max-w-[320px] w-full">
+            <div className="rounded-xl overflow-hidden shadow-2xl max-w-[320px] w-full bg-white/10 backdrop-blur-sm p-4">
               <img
                 src="pic5.png"
                 alt="Staff Portal"
-                className="w-full h-auto object-contain"
+                className="w-full h-auto object-contain rounded-lg"
+                style={{ maxHeight: "400px" }}
               />
             </div>
           </div>
@@ -52,11 +75,14 @@ const StaffPortalSection = () => {
               isVisible ? "translate-x-0 opacity-100" : "translate-x-10 opacity-0"
             }`}
           >
-            <p className="text-lg mb-4">Our staff portal is fully mobile-friendly. Staff can use their portal to:</p>
-            <ul className="space-y-3 text-sm md:text-base">
+            <p className="text-lg mb-6">Our staff portal is fully mobile-friendly. Staff can use their portal to:</p>
+            <div className="space-y-3">
               {portalFeatures.map((feature, index) => (
-                <li key={index} className="flex items-start">
-                  <span className="text-white mr-2 flex-shrink-0 mt-1">
+                <div
+                  key={index}
+                  className="flex items-start bg-white/10 p-3 rounded-lg backdrop-blur-sm transition-all duration-300 hover:bg-white/20"
+                >
+                  <span className="text-white mr-3 flex-shrink-0 mt-0.5">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-5 w-5"
@@ -72,10 +98,10 @@ const StaffPortalSection = () => {
                       />
                     </svg>
                   </span>
-                  <span>{feature}</span>
-                </li>
+                  <span className="text-sm">{feature}</span>
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
         </div>
       </div>
