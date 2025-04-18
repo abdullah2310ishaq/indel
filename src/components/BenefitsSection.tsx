@@ -37,14 +37,14 @@ const BenefitsSection = () => {
 
   return (
     <section className="py-12 px-4 md:px-6 bg-white">
-      <h2 className="text-2xl font-bold text-[#5a50a3] text-center mb-8">Indel Offers a Wide Range of Benefits</h2>
+      <h2 className="text-2xl font-bold text-[#3b82f6] text-center mb-8">Indel Offers a Wide Range of Benefits</h2>
 
       <main className="max-w-6xl mx-auto flex flex-col md:flex-row gap-6 items-start">
         {/* Benefits List */}
         <ul className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-y-2 text-gray-800 text-xs md:text-sm leading-relaxed">
           {benefits.map((benefit, index) => (
             <li key={index} className="flex">
-              <span className="text-[#5a50a3] mr-2">➔</span>
+              <span className="text-[#3b82f6] mr-2">➔</span>
               {benefit}
             </li>
           ))}

@@ -36,11 +36,11 @@ const Navbar = ({ onNavigate }: NavbarProps) => {
   ]
 
   return (
-    <nav className="bg-[#5a50a3] text-white shadow-md sticky top-0 z-50">
-      <div className="max-w-6xl mx-auto px-4 py-2 flex items-center justify-between">
+    <nav className="bg-[#3b82f6] text-white shadow-md">
+      <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
         {/* Logo */}
         <div className="flex-shrink-0">
-          <img src={logo || "/placeholder.svg"} alt="Logo" className="h-16 md:h-20 w-auto object-contain" />
+          <img src={logo || "/placeholder.svg"} alt="Logo" className="h-24 md:h-28 w-auto object-contain" />
         </div>
 
         {/* Mobile Toggle */}
@@ -56,7 +56,7 @@ const Navbar = ({ onNavigate }: NavbarProps) => {
             <button
               key={index}
               onClick={() => handleNavClick(item.action)}
-              className="text-xs font-semibold tracking-wide hover:text-gray-200 transition-colors"
+              className="text-xs font-semibold tracking-wide hover:text-blue-100 transition-colors"
             >
               {item.label}
             </button>
@@ -66,12 +66,12 @@ const Navbar = ({ onNavigate }: NavbarProps) => {
 
       {/* Mobile Nav */}
       {isMenuOpen && (
-        <div className="md:hidden bg-[#4a4293] px-4 py-3 space-y-2">
+        <div className="md:hidden bg-[#2563eb] px-4 py-3 space-y-2">
           {navItems.map((item, index) => (
             <button
               key={index}
               onClick={() => handleNavClick(item.action)}
-              className="block w-full text-left text-xs font-medium text-white hover:text-gray-200"
+              className="block w-full text-left text-xs font-medium text-white hover:text-blue-100"
             >
               {item.label}
             </button>

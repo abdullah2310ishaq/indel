@@ -58,7 +58,7 @@ export default function Home() {
           <div className="py-8 bg-white">
             <div className="container mx-auto px-4 max-w-3xl">
               <div className="text-center">
-                <h2 className="text-lg font-bold mb-3 text-[#5a50a3]">Welcome to INDEL</h2>
+                <h2 className="text-lg font-bold mb-3 text-[#1a4b8c]">Welcome to INDEL</h2>
                 <p className="text-xs md:text-sm text-gray-700 leading-relaxed">
                   The next-generation web-based application for security companies, designed to streamline your
                   operations and enhance your business efficiency. Our comprehensive solution provides everything you

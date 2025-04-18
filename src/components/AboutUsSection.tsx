@@ -4,7 +4,7 @@ const AboutUsSection = () => {
   return (
     <section className="bg-gray-50 px-4 py-16 text-gray-700 leading-relaxed text-center">
       {/* Header Banner */}
-      <div className="bg-[#5a50a3] py-6 relative text-white mb-8">
+      <div className="bg-[#3b82f6] py-6 relative text-white mb-8">
         <h2 className="text-2xl md:text-3xl font-bold">About Us</h2>
         <div
           className="absolute bottom-0 left-0 right-0 h-5 bg-gray-50"
@@ -22,7 +22,7 @@ const AboutUsSection = () => {
           every function, blazing speed, and unmatched compatibility. We don't lock you into yearly contracts — we offer
           flexible monthly subscriptions the way modern software should.
         </p>
-        <p className="italic text-[#5a50a3]">
+        <p className="italic text-[#3b82f6]">
           Indel is a project by Fiksu Solutions Limited — an I.T firm dedicated to developing intelligent business
           systems that drive success.
         </p>

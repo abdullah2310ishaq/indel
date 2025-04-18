@@ -20,11 +20,11 @@ const StaffPortalSection = () => {
   }, [])
 
   return (
-    <section className="py-16 px-4 bg-gradient-to-r from-[#6a3fc4] to-[#a174e3] text-white relative overflow-hidden">
+    <section className="py-16 px-4 bg-gradient-to-r from-[#3b82f6] to-[#60a5fa] text-white relative overflow-hidden">
       {/* Decorative background circles */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -left-20 top-0 w-64 h-64 rounded-full bg-[#6b62b5] opacity-20" />
-        <div className="absolute right-0 bottom-0 w-80 h-80 rounded-full bg-[#7c74c6] opacity-15" />
+        <div className="absolute -left-20 top-0 w-64 h-64 rounded-full bg-[#60a5fa] opacity-20" />
+        <div className="absolute right-0 bottom-0 w-80 h-80 rounded-full bg-[#93c5fd] opacity-15" />
       </div>
 
       <div className="max-w-5xl mx-auto relative z-10">

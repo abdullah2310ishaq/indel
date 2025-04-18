@@ -30,11 +30,11 @@ const MobileAppSection = () => {
   }, [])
 
   return (
-    <section className="py-16 px-4 bg-[#5a50a3] text-white relative overflow-hidden">
+    <section className="py-16 px-4 bg-gradient-to-b from-[#3b82f6] via-[#60a5fa] to-[#93c5fd] text-white relative overflow-hidden">
       {/* Soft Background Circles */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -left-20 top-0 w-64 h-64 rounded-full bg-[#6b62b5] opacity-20" />
-        <div className="absolute -right-20 bottom-0 w-80 h-80 rounded-full bg-[#7c74c6] opacity-15" />
+        <div className="absolute -left-20 top-0 w-64 h-64 rounded-full bg-[#60a5fa] opacity-20" />
+        <div className="absolute -right-20 bottom-0 w-80 h-80 rounded-full bg-[#93c5fd] opacity-15" />
       </div>
 
       <div className="relative z-10 max-w-5xl mx-auto">

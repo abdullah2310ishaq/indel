@@ -16,28 +16,28 @@ interface FooterProps {
 
 const Footer: FC<FooterProps> = ({ onNavigate }) => {
   return (
-    <footer className="bg-[#5a50a3] text-white py-6 px-4 text-center">
+    <footer className="bg-[#3b82f6] text-white py-6 px-4 text-center">
       {/* Navigation Links */}
       <nav className="flex flex-wrap justify-center gap-4 mb-4 text-xs font-medium tracking-wide">
-        <button onClick={onNavigate.home} className="hover:underline hover:text-gray-200 transition">
+        <button onClick={onNavigate.home} className="hover:underline hover:text-blue-100 transition">
           WELCOME
         </button>
-        <button onClick={onNavigate.benefits} className="hover:underline hover:text-gray-200 transition">
+        <button onClick={onNavigate.benefits} className="hover:underline hover:text-blue-100 transition">
           BENEFITS
         </button>
-        <button onClick={onNavigate.mobileApp} className="hover:underline hover:text-gray-200 transition">
+        <button onClick={onNavigate.mobileApp} className="hover:underline hover:text-blue-100 transition">
           MOBILE APP
         </button>
-        <button onClick={onNavigate.staffPortal} className="hover:underline hover:text-gray-200 transition">
+        <button onClick={onNavigate.staffPortal} className="hover:underline hover:text-blue-100 transition">
           STAFF PORTAL
         </button>
-        <button onClick={onNavigate.features} className="hover:underline hover:text-gray-200 transition">
+        <button onClick={onNavigate.features} className="hover:underline hover:text-blue-100 transition">
           FEATURES
         </button>
-        <button onClick={onNavigate.aboutUs} className="hover:underline hover:text-gray-200 transition">
+        <button onClick={onNavigate.aboutUs} className="hover:underline hover:text-blue-100 transition">
           ABOUT US
         </button>
-        <button onClick={onNavigate.contactUs} className="hover:underline hover:text-gray-200 transition">
+        <button onClick={onNavigate.contactUs} className="hover:underline hover:text-blue-100 transition">
           CONTACT US
         </button>
       </nav>
@@ -45,7 +45,7 @@ const Footer: FC<FooterProps> = ({ onNavigate }) => {
       {/* Contact Info */}
       <p className="text-xs mb-2">
         Contact Us:{" "}
-        <a href="mailto:info@fiksu-solutions.com" className="underline hover:text-gray-200">
+        <a href="mailto:info@fiksu-solutions.com" className="underline hover:text-blue-100">
           info@fiksu-solutions.com
         </a>
       </p>

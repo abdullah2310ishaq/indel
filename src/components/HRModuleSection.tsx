@@ -25,7 +25,7 @@ const HRModuleSection = () => {
 
   return (
     <section className="py-16 px-4 bg-[#f4f6fb]">
-      <h2 className="text-2xl md:text-3xl font-bold text-center text-[#5a50a3] mb-8">HR Module</h2>
+      <h2 className="text-2xl md:text-3xl font-bold text-center text-[#3b82f6] mb-8">HR Module</h2>
 
       <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8 items-center">
         {/* Left: Image */}
@@ -41,14 +41,14 @@ const HRModuleSection = () => {
               <button
                 key={idx}
                 onClick={() => setCurrentImageIndex(idx)}
-                className={`w-2 h-2 rounded-full ${idx === currentImageIndex ? "bg-[#5a50a3]" : "bg-gray-300"}`}
+                className={`w-2 h-2 rounded-full ${idx === currentImageIndex ? "bg-[#3b82f6]" : "bg-gray-300"}`}
               ></button>
             ))}
           </div>
         </div>
 
         {/* Right: Feature List */}
-        <ul className="space-y-3 text-[#5a50a3] text-xs md:text-sm leading-relaxed">
+        <ul className="space-y-3 text-[#3b82f6] text-xs md:text-sm leading-relaxed">
           {hrFeatures.map((feature, index) => (
             <li key={index} className="flex items-start gap-2">
               <span className="mt-1">○</span>
