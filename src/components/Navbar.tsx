@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { Menu, X } from "lucide-react"
 import logo from "../assets/pic11.png"
 
@@ -18,15 +18,6 @@ interface NavbarProps {
 
 const Navbar = ({ onNavigate }: NavbarProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20)
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
 
@@ -45,12 +36,8 @@ const Navbar = ({ onNavigate }: NavbarProps) => {
   ]
 
   return (
-    <nav
-      className={`${
-        scrolled ? "bg-purple-800 shadow-lg" : "bg-gradient-to-r from-purple-700 to-indigo-800"
-      } text-white sticky top-0 z-50 transition-all duration-300`}
-    >
-      <div className="max-w-6xl mx-auto px-6 py-3 flex justify-between items-center">
+    <nav className="bg-[#5a50a3] text-white sticky top-0 z-50 shadow-md">
+      <div className="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center">
           <img src={logo || "/placeholder.svg"} alt="Logo" className="h-10 w-auto object-contain" />
@@ -69,10 +56,9 @@ const Navbar = ({ onNavigate }: NavbarProps) => {
             <button
               key={index}
               onClick={() => handleNavClick(item.action)}
-              className="text-sm tracking-wide font-medium hover:text-purple-200 transition-colors px-2 py-1 relative group"
+              className="text-xs font-medium hover:text-gray-200 transition-colors px-2 py-1"
             >
               {item.label}
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-purple-300 transition-all duration-300 group-hover:w-full"></span>
             </button>
           ))}
         </div>
@@ -80,12 +66,12 @@ const Navbar = ({ onNavigate }: NavbarProps) => {
 
       {/* Mobile nav */}
       {isMenuOpen && (
-        <div className="md:hidden bg-purple-900 px-6 py-4 space-y-3 animate-fadeIn">
+        <div className="md:hidden bg-[#4a4293] px-4 py-3 space-y-2">
           {navItems.map((item, index) => (
             <button
               key={index}
               onClick={() => handleNavClick(item.action)}
-              className="block w-full text-left text-sm font-medium text-white hover:text-purple-200 transition-colors py-2 border-b border-purple-800"
+              className="block w-full text-left text-sm font-medium text-white hover:text-gray-200 transition-colors py-1"
             >
               {item.label}
             </button>

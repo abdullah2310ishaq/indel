@@ -55,11 +55,11 @@ export default function Home() {
 
         {/* Welcome Section */}
         <div ref={welcomeRef}>
-          <div className="py-16 bg-white">
-            <div className="container mx-auto px-6 max-w-4xl">
+          <div className="py-12 bg-white">
+            <div className="container mx-auto px-4 max-w-4xl">
               <div className="text-center">
-                <h2 className="text-2xl font-bold mb-6 text-purple-700">Welcome to INDEL</h2>
-                <p className="text-gray-700 leading-relaxed">
+                <h2 className="text-xl font-bold mb-4 text-[#5a50a3]">Welcome to INDEL</h2>
+                <p className="text-sm text-gray-700 leading-relaxed">
                   The next-generation web-based application for security companies, designed to streamline your
                   operations and enhance your business efficiency. Our comprehensive solution provides everything you
                   need to manage your security company effectively.

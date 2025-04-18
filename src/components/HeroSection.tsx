@@ -1,66 +1,43 @@
 "use client"
 
-import { useEffect, useState } from "react"
-
 interface HeroSectionProps {
   title: string
   subtitle?: string
 }
 
 const HeroSection = ({ title, subtitle }: HeroSectionProps) => {
-  const [isVisible, setIsVisible] = useState(false)
-
-  useEffect(() => {
-    setIsVisible(true)
-  }, [])
-
   return (
-    <section className="relative overflow-hidden py-16 md:py-24">
-      {/* Background Gradient */}
-      <div className="absolute inset-0 z-0">
-        <div className="h-full w-full bg-gradient-to-b from-purple-700 via-purple-500 to-white"></div>
-      </div>
+    <section className="relative overflow-hidden py-24 md:py-32 bg-gradient-to-b from-[#5a50a3] via-[#8a82c5] to-white">
+      {/* Overlay Pattern (optional aesthetic) */}
+      <div className="absolute inset-0 z-0 opacity-10 bg-[url('/grid.svg')] bg-cover"></div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 text-center text-white max-w-5xl">
-        <h1
-          className={`text-2xl md:text-3xl font-bold mb-4 leading-tight transition-all duration-1000 transform ${
-            isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-          }`}
-        >
+      <div className="relative z-10 container mx-auto px-6 text-center max-w-5xl">
+        <h1 className="text-4xl md:text-5xl font-extrabold leading-tight text-white drop-shadow-md mb-6">
           {title}
         </h1>
         {subtitle && (
-          <p
-            className={`text-sm md:text-base max-w-2xl mx-auto opacity-90 transition-all duration-1000 delay-300 transform ${
-              isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-            }`}
-          >
+          <p className="text-lg md:text-xl text-white opacity-90 mb-12 max-w-2xl mx-auto">
             {subtitle}
           </p>
         )}
 
-        {/* Image Card */}
-        <div
-          className={`mt-10 mx-auto bg-white rounded-xl shadow-xl overflow-hidden transform transition-all duration-1000 delay-500 ${
-            isVisible ? "translate-y-0 opacity-100 scale-100" : "translate-y-10 opacity-0 scale-95"
-          } hover:shadow-2xl hover:scale-[1.01] duration-300`}
-          style={{ maxWidth: "900px" }}
-        >
-          <div className="relative overflow-hidden">
+        {/* Image Card with subtle glass effect */}
+        <div className="mx-auto max-w-4xl backdrop-blur-sm bg-white/80 border border-gray-200 shadow-2xl rounded-2xl overflow-hidden transform hover:scale-105 transition duration-500">
+          <div className="relative">
             <img
-              src="/pic1.png"
+              src="/pic1.jpg"
               alt="Hero Screenshot"
               className="w-full h-auto object-cover"
-              style={{ maxHeight: "400px" }}
+              style={{ maxHeight: "420px" }}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
           </div>
-          <div className="p-6 bg-gray-50 text-left">
-            <h2 className="text-lg font-semibold text-gray-800 mb-2">Your Security Solution</h2>
-            <p className="text-sm text-gray-700">
-              INDEL provides a comprehensive solution for security companies with advanced scheduling, monitoring, and
-              reporting features.
+          <div className="p-6 md:p-8 bg-white text-left">
+            <h2 className="text-xl font-semibold text-gray-900 mb-3">
+              Your Security Solution
+            </h2>
+            <p className="text-base text-gray-700 leading-relaxed">
+              INDEL provides a comprehensive solution for security companies with advanced scheduling, monitoring, and reporting features.
             </p>
           </div>
         </div>

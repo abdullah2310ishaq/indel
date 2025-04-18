@@ -1,7 +1,6 @@
 "use client"
 
-import { useState, useEffect, useRef } from "react"
-import SectionTitle from "./SectionTile"
+import { useState, useEffect } from "react"
 
 const BenefitsSection = () => {
   const benefits = [
@@ -26,10 +25,8 @@ const BenefitsSection = () => {
     "Over 50 reports to cover all aspects of the business",
   ]
 
-  const images = ["pic2.png", "pic3.png", "/pic4.png"]
+  const images = ["pic2.jpg", "pic3.jpg", "pic4.jpg"]
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
-  const [isVisible, setIsVisible] = useState(false)
-  const sectionRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -38,80 +35,30 @@ const BenefitsSection = () => {
     return () => clearInterval(interval)
   }, [images.length])
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true)
-        }
-      },
-      { threshold: 0.1 },
-    )
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current)
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current)
-      }
-    }
-  }, [])
-
   return (
-    <section ref={sectionRef} className="py-16 bg-gray-50">
-      <div className="container mx-auto px-6 max-w-6xl">
-        <SectionTitle title="Indel Offers Wide Range Of Benefits" />
+    <section className="py-20 px-4 md:px-6 bg-white">
+      <h2 className="text-3xl font-bold text-[#5a50a3] text-center mb-12">
+        Indel Offers a Wide Range of Benefits
+      </h2>
 
-        <div
-          className={`grid md:grid-cols-2 gap-10 items-center mt-12 transition-all duration-1000 transform ${
-            isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-          }`}
-        >
-          {/* Text Column */}
-          <div>
-            <h3 className="text-lg font-semibold mb-6 text-purple-700">Key Benefits</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-700 text-sm">
-              {benefits.map((benefit, index) => (
-                <div
-                  key={index}
-                  className="flex items-start p-2 rounded-lg hover:bg-white hover:shadow-sm transition-all duration-300"
-                >
-                  <span className="text-purple-600 mr-2 mt-0.5 text-xs">➔</span>
-                  <span>{benefit}</span>
-                </div>
-              ))}
-            </div>
-          </div>
+      <main className="max-w-6xl mx-auto flex flex-col md:flex-row gap-10 items-start">
+        {/* Benefits List */}
+        <ul className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-y-3 text-gray-800 text-sm leading-relaxed">
+          {benefits.map((benefit, index) => (
+            <li key={index} className="flex">
+              <span className="text-[#5a50a3] mr-2">➔</span>
+              {benefit}
+            </li>
+          ))}
+        </ul>
 
-          {/* Image Column */}
-          <div className="max-w-md mx-auto w-full">
-            <div className="relative rounded-xl overflow-hidden shadow-lg">
-              <div className="bg-gradient-to-r from-purple-100 to-indigo-100 p-4">
-                <img
-                  src={images[currentImageIndex] || "/placeholder.svg"}
-                  alt={`Indel Dashboard ${currentImageIndex + 1}`}
-                  className="w-full h-auto object-contain transition-opacity duration-500 rounded-lg"
-                  style={{ maxHeight: "300px" }}
-                />
-              </div>
-
-              {/* Image indicators */}
-              <div className="absolute bottom-2 left-0 right-0 flex justify-center space-x-2">
-                {images.map((_, index) => (
-                  <span
-                    key={index}
-                    className={`h-1.5 rounded-full transition-all duration-300 ${
-                      currentImageIndex === index ? "w-6 bg-purple-600" : "w-2 bg-gray-300"
-                    }`}
-                  ></span>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+        {/* Image Right Side */}
+        <img
+          src={images[currentImageIndex]}
+          alt="Benefits Dashboard"
+          className="w-full max-w-full md:max-w-[700px] h-auto md:h-[430px] rounded-xl shadow-lg object-fill transition-all duration-700"
+        />
+      </main>
     </section>
   )
 }
