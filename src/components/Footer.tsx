@@ -16,9 +16,9 @@ interface FooterProps {
 
 const Footer: FC<FooterProps> = ({ onNavigate }) => {
   return (
-    <footer className="bg-[#5a50a3] text-white py-8 px-4 text-center">
+    <footer className="bg-[#5a50a3] text-white py-6 px-4 text-center">
       {/* Navigation Links */}
-      <nav className="flex flex-wrap justify-center gap-6 mb-6 text-sm font-medium tracking-wide">
+      <nav className="flex flex-wrap justify-center gap-4 mb-4 text-xs font-medium tracking-wide">
         <button onClick={onNavigate.home} className="hover:underline hover:text-gray-200 transition">
           WELCOME
         </button>
@@ -43,7 +43,7 @@ const Footer: FC<FooterProps> = ({ onNavigate }) => {
       </nav>
 
       {/* Contact Info */}
-      <p className="text-sm mb-2">
+      <p className="text-xs mb-2">
         Contact Us:{" "}
         <a href="mailto:info@fiksu-solutions.com" className="underline hover:text-gray-200">
           info@fiksu-solutions.com
@@ -51,9 +51,7 @@ const Footer: FC<FooterProps> = ({ onNavigate }) => {
       </p>
 
       {/* Copyright */}
-      <p className="text-xs opacity-80">
-        © 2015 Fiksu Solutions Limited. All rights reserved.
-      </p>
+      <p className="text-xs opacity-80">© 2015 Fiksu Solutions Limited. All rights reserved.</p>
     </footer>
   )
 }

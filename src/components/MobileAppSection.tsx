@@ -30,44 +30,41 @@ const MobileAppSection = () => {
   }, [])
 
   return (
-    <section className="py-24 px-6 bg-[#5a50a3] text-white relative overflow-hidden">
+    <section className="py-16 px-4 bg-[#5a50a3] text-white relative overflow-hidden">
       {/* Soft Background Circles */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -left-20 top-0 w-64 h-64 rounded-full bg-[#6b62b5] opacity-20" />
         <div className="absolute -right-20 bottom-0 w-80 h-80 rounded-full bg-[#7c74c6] opacity-15" />
-        <div className="absolute left-1/3 top-1/4 w-40 h-40 rounded-full bg-[#8d86d7] opacity-10" />
       </div>
 
       <div className="relative z-10 max-w-5xl mx-auto">
         {/* Heading */}
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-          iOS & Android Mobile App
-        </h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">iOS & Android Mobile App</h2>
 
         {/* Grid Layout */}
-        <div className="grid md:grid-cols-2 gap-12 items-center px-4">
+        <div className="grid md:grid-cols-2 gap-8 items-center px-4">
           {/* Feature List */}
           <div className="flex flex-col items-center md:items-start text-center md:text-left">
-  <ul className="space-y-3 text-white text-sm md:text-base font-medium leading-relaxed">
-    {mobileFeatures.map((feature, index) => (
-      <li key={index} className="flex items-center gap-2">
-        <span className="text-white text-lg">➤</span>
-        <span>{feature}</span>
-      </li>
-    ))}
-  </ul>
-</div>
+            <ul className="space-y-2 text-white text-xs md:text-sm leading-relaxed">
+              {mobileFeatures.map((feature, index) => (
+                <li key={index} className="flex items-center gap-2">
+                  <span className="text-white text-base">➤</span>
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
 
           {/* Phone Mockup */}
           <div className="flex justify-center">
-            <div className="relative w-full max-w-[260px]">
-              <div className="aspect-[9/19] bg-black border-[8px] border-gray-800 rounded-[2rem] shadow-2xl relative overflow-hidden">
+            <div className="relative w-full max-w-[220px]">
+              <div className="aspect-[9/19] bg-black border-[6px] border-gray-800 rounded-[2rem] shadow-xl relative overflow-hidden">
                 {/* Notch */}
-                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[40%] h-6 bg-black rounded-b-xl z-10" />
+                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[40%] h-5 bg-black rounded-b-xl z-10" />
                 {/* Home Button */}
-                <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-8 h-8 border-2 border-gray-300 rounded-full" />
+                <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-6 h-6 border-2 border-gray-300 rounded-full" />
                 {/* Screen */}
-                <div className="absolute top-6 left-0 right-0 bottom-10 px-1 py-1 bg-white overflow-hidden">
+                <div className="absolute top-5 left-0 right-0 bottom-8 px-1 py-1 bg-white overflow-hidden">
                   <img
                     src={appScreenshots[currentImageIndex].image || "/placeholder.svg"}
                     alt={appScreenshots[currentImageIndex].alt}
@@ -77,7 +74,7 @@ const MobileAppSection = () => {
               </div>
 
               {/* Shadow */}
-              <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-[80%] h-4 bg-black/20 rounded-full blur-md" />
+              <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-[80%] h-3 bg-black/20 rounded-full blur-md" />
             </div>
           </div>
         </div>

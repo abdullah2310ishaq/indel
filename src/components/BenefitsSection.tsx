@@ -36,14 +36,12 @@ const BenefitsSection = () => {
   }, [images.length])
 
   return (
-    <section className="py-20 px-4 md:px-6 bg-white">
-      <h2 className="text-3xl font-bold text-[#5a50a3] text-center mb-12">
-        Indel Offers a Wide Range of Benefits
-      </h2>
+    <section className="py-12 px-4 md:px-6 bg-white">
+      <h2 className="text-2xl font-bold text-[#5a50a3] text-center mb-8">Indel Offers a Wide Range of Benefits</h2>
 
-      <main className="max-w-6xl mx-auto flex flex-col md:flex-row gap-10 items-start">
+      <main className="max-w-6xl mx-auto flex flex-col md:flex-row gap-6 items-start">
         {/* Benefits List */}
-        <ul className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-y-3 text-gray-800 text-sm leading-relaxed">
+        <ul className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-y-2 text-gray-800 text-xs md:text-sm leading-relaxed">
           {benefits.map((benefit, index) => (
             <li key={index} className="flex">
               <span className="text-[#5a50a3] mr-2">➔</span>
@@ -54,9 +52,9 @@ const BenefitsSection = () => {
 
         {/* Image Right Side */}
         <img
-          src={images[currentImageIndex]}
+          src={images[currentImageIndex] || "/placeholder.svg"}
           alt="Benefits Dashboard"
-          className="w-full max-w-full md:max-w-[700px] h-auto md:h-[430px] rounded-xl shadow-lg object-fill transition-all duration-700"
+          className="w-full max-w-full md:max-w-[600px] h-auto md:h-[380px] rounded-lg shadow-md object-fill transition-all duration-700"
         />
       </main>
     </section>

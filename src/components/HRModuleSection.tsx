@@ -24,33 +24,31 @@ const HRModuleSection = () => {
   }, [images.length])
 
   return (
-    <section className="py-24 px-6 bg-[#f4f6fb]">
-      <h2 className="text-3xl md:text-4xl font-extrabold text-center text-[#5a50a3] mb-12">HR Module</h2>
+    <section className="py-16 px-4 bg-[#f4f6fb]">
+      <h2 className="text-2xl md:text-3xl font-bold text-center text-[#5a50a3] mb-8">HR Module</h2>
 
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+      <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8 items-center">
         {/* Left: Image */}
-        <div className="w-full max-w-[600px] mx-auto rounded-xl overflow-hidden shadow-xl">
-        <img
-  src={images[currentImageIndex]}
-  alt={`HR Module Image ${currentImageIndex + 1}`}
-  className="w-full h-[400px] object-fill transition-opacity duration-700 rounded-xl"
-/>
+        <div className="w-full max-w-[500px] mx-auto rounded-lg overflow-hidden shadow-lg">
+          <img
+            src={images[currentImageIndex] || "/placeholder.svg"}
+            alt={`HR Module Image ${currentImageIndex + 1}`}
+            className="w-full h-[320px] object-fill transition-opacity duration-700 rounded-lg"
+          />
 
           <div className="flex justify-center gap-2 mt-2">
             {images.map((_, idx) => (
               <button
                 key={idx}
                 onClick={() => setCurrentImageIndex(idx)}
-                className={`w-2.5 h-2.5 rounded-full ${
-                  idx === currentImageIndex ? "bg-[#5a50a3]" : "bg-gray-300"
-                }`}
+                className={`w-2 h-2 rounded-full ${idx === currentImageIndex ? "bg-[#5a50a3]" : "bg-gray-300"}`}
               ></button>
             ))}
           </div>
         </div>
 
         {/* Right: Feature List */}
-        <ul className="space-y-4 text-[#5a50a3] text-sm md:text-base font-medium leading-relaxed">
+        <ul className="space-y-3 text-[#5a50a3] text-xs md:text-sm leading-relaxed">
           {hrFeatures.map((feature, index) => (
             <li key={index} className="flex items-start gap-2">
               <span className="mt-1">○</span>
