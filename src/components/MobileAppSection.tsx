@@ -15,9 +15,9 @@ const MobileAppSection = () => {
   ]
 
   const appScreenshots = [
-    { image: "pic5.png", alt: "App Login Screen" },
-    { image: "pic6.png", alt: "Shift Details Screen" },
-    { image: "pic7.png", alt: "Book On/Off Screen" },
+    { image: "mobile.png", alt: "App Login Screen" },
+    { image: "phone2.png", alt: "Shift Details Screen" },
+    { image: "phone3.png", alt: "Book On/Off Screen" },
   ]
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
