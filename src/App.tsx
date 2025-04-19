@@ -5,6 +5,7 @@ import type React from "react"
 import { useRef } from "react"
 import AboutUsSection from "./components/AboutUsSection"
 import BenefitsSection from "./components/BenefitsSection"
+import ContactForm from "./components/ContactForm"
 import FeaturesSection from "./components/FeaturesSection"
 import Footer from "./components/Footer"
 import HeroSection from "./components/HeroSection"
@@ -58,7 +59,7 @@ export default function Home() {
           <div className="py-8 bg-white">
             <div className="container mx-auto px-4 max-w-3xl">
               <div className="text-center">
-                <h2 className="text-lg font-bold mb-3 text-[#1a4b8c]">Welcome to INDEL</h2>
+                <h2 className="text-lg font-bold mb-3 text-[#3b82f6]">Welcome to INDEL</h2>
                 <p className="text-xs md:text-sm text-gray-700 leading-relaxed">
                   The next-generation web-based application for security companies, designed to streamline your
                   operations and enhance your business efficiency. Our comprehensive solution provides everything you
@@ -85,7 +86,7 @@ export default function Home() {
         </div>
 
         {/* Staff Section */}
-        <div ref={contactUsRef}>
+        <div>
           <StaffPortalSection />
         </div>
 
@@ -94,10 +95,16 @@ export default function Home() {
           <FeaturesSection />
         </div>
 
+ {/* Contact Us Section */}
+ <div ref={contactUsRef}>
+          <ContactForm />
+        </div>
         {/* About Us Section */}
         <div ref={aboutUsRef}>
           <AboutUsSection />
         </div>
+
+       
       </main>
 
       <Footer

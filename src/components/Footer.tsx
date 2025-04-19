@@ -45,8 +45,8 @@ const Footer: FC<FooterProps> = ({ onNavigate }) => {
       {/* Contact Info */}
       <p className="text-xs mb-2">
         Contact Us:{" "}
-        <a href="mailto:info@fiksu-solutions.com" className="underline hover:text-blue-100">
-          info@fiksu-solutions.com
+        <a href="mailto:truesecureteam4u@gmail.com" className="underline hover:text-blue-100">
+        truesecureteam4u@gmail.com
         </a>
       </p>
 
